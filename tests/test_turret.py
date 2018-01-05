@@ -7,7 +7,6 @@ import pytest
 
 from click.testing import CliRunner
 
-from turret import turret
 from turret import cli
 
 
