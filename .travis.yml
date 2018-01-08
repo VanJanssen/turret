@@ -2,6 +2,7 @@
 # This file will be regenerated if you run travis_pypi_setup.py
 
 language: python
+sudo: true
 python:
   - 3.6
   - 3.5
@@ -11,8 +12,16 @@ python:
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install: pip install -U tox-travis codecov
 
-# command to run tests, e.g. python setup.py test
-script: tox
+
+script:
+  # Run the tests without the used tools, to test if all exceptions are handled.
+  - tox
+
+  # Install tools used.
+  - sudo apt-get install -y nmap
+
+  # Run the tests again to test the other paths
+  - tox
 
 # Upload coverage report to codecov.io
 after_success:
