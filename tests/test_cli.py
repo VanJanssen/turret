@@ -2,6 +2,8 @@
 
 """Tests for the command line interface of Turret."""
 
+from shutil import which
+
 from click.testing import CliRunner
 
 from turret import __version__
@@ -51,3 +53,17 @@ def test_raw():
     assert "'turret raw [TOOL] --help'" in result.output
     assert '--help  Show this message and exit.' in result.output
     assert 'nmap  Perform Nmap scans.' in result.output
+
+
+def test_raw_nmap():
+    """Test the raw nmap command."""
+    runner = CliRunner()
+    result = runner.invoke(cli.nmap)
+
+    # Test is dependent on whether nmap is installed
+    if which('nmap'):
+        pass
+    else:
+        assert result.exit_code == 1
+        assert 'Error: Failed' in result.output
+        assert '- nmap' in result.output

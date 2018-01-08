@@ -2,7 +2,21 @@
 
 """Console script for turret."""
 
+from sys import exit
+
 import click
+
+
+def not_installed_message(applications):
+    """
+    Return a string message saying the applications are not installed. Takes
+    a list of strings as input.
+    """
+    message = 'Error: Failed to perform this action, because the following ' \
+              'applications are not installed, or not available in the PATH:\n'
+    for application in applications:
+        message += '  - {}\n'.format(application)
+    return message
 
 
 @click.group()
@@ -40,4 +54,8 @@ def raw():
 def nmap(arguments):
     """Perform Nmap scans."""
     from turret.scout.nmap import scan
-    scan(arguments)
+    try:
+        scan(arguments)
+    except FileNotFoundError as e:
+        click.echo(not_installed_message(['nmap']), err=True)
+        exit(1)
