@@ -6,7 +6,7 @@ import click
 
 
 @click.group()
-@click.version_option(message='%(prog)s %(version)s')
+@click.version_option(message='Turret %(version)s')
 def main():
     """Main console script for turret."""
     pass
