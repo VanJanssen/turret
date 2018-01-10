@@ -56,6 +56,6 @@ def nmap(arguments):
     from turret.scout.nmap import scan
     try:
         scan(arguments)
-    except OSError as e:
+    except OSError:
         click.echo(not_installed_message(['nmap']), err=True)
         sys.exit(1)
