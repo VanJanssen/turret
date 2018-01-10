@@ -2,7 +2,10 @@
 
 """Interface for performing Nmap scans."""
 
-from subprocess import run
+try:
+    from subprocess import run
+except ImportError:
+    from subprocess import call as run
 
 
 def scan(arguments):
