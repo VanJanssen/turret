@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from shutil import which
+try:
+    from shutil import which
+except ImportError:
+    from distutils.spawn import find_executable as which
 
 from click.testing import CliRunner
 
