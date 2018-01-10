@@ -2,7 +2,7 @@
 
 """Console script for turret."""
 
-from sys import exit
+import sys
 
 import click
 
@@ -58,4 +58,4 @@ def nmap(arguments):
         scan(arguments)
     except OSError as e:
         click.echo(not_installed_message(['nmap']), err=True)
-        exit(1)
+        sys.exit(1)
