@@ -56,6 +56,6 @@ def nmap(arguments):
     from turret.scout.nmap import scan
     try:
         scan(arguments)
-    except FileNotFoundError as e:
+    except OSError as e:
         click.echo(not_installed_message(['nmap']), err=True)
         exit(1)
