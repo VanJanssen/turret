@@ -35,7 +35,7 @@ setup(
     packages=find_packages(include=['turret']),
     entry_points={
         'console_scripts': [
-            'turret=turret.cli:main'
+            'turret=turret.core.cli:main'
         ]
     },
     include_package_data=True,

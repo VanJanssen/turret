@@ -7,7 +7,7 @@ except ImportError:
 
 from click.testing import CliRunner
 
-from turret import cli
+from turret.raw.nmap import cli
 
 
 def test_nmap_installed():

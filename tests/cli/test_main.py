@@ -3,7 +3,7 @@
 from click.testing import CliRunner
 
 from turret import __version__
-from turret import cli
+from turret.core import cli
 
 
 def test_help_output():

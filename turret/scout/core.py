@@ -4,5 +4,5 @@
 
 
 def recon(arguments):
-    from turret.scout.nmap import scan
+    from turret.raw.nmap.nmap import scan
     scan(arguments)
