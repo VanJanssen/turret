@@ -9,18 +9,23 @@ python:
   - 3.4
   - 2.7
 
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U tox-travis codecov
+env:
+  matrix:
+    # Run the tests with and without used tools installed, to test if all
+    # exceptions are handled.
+    - WITH_TOOLS=true
+    - WITH_TOOLS=false
 
+# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+install:
+  - pip install -U tox-travis codecov
+  - |
+    if [ $WITH_TOOLS = true ] ; then
+      sudo apt-get install -y nmap
+    fi
 
 script:
-  # Run the tests without the used tools, to test if all exceptions are handled.
-  - tox
-
-  # Install tools used.
-  - sudo apt-get install -y nmap
-
-  # Run the tests again to test the other paths
+  # Run the tests
   - tox
 
 # Upload coverage report to codecov.io
