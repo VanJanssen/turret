@@ -7,7 +7,7 @@ except ImportError:
 
 from click.testing import CliRunner
 
-from turret.raw.nmap import cli
+from turret.core import cli
 
 
 def test_nmap_installed():
@@ -21,7 +21,7 @@ def test_nmap_installed():
     program, instead of printing a Python stack trace.
     """
     runner = CliRunner()
-    result = runner.invoke(cli.nmap, ['--version'])
+    result = runner.invoke(cli.main, ['raw', 'nmap', '--version'])
 
     # If nmap is not installed, exit with the appropriate error message.
     if which('nmap'):

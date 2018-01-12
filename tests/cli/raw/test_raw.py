@@ -2,14 +2,14 @@
 
 from click.testing import CliRunner
 
-from turret.raw import cli
+from turret.core import cli
 
 
 def test_help_output():
     """Test the help output of the raw entry point."""
     runner = CliRunner()
-    result = runner.invoke(cli.raw)
-    help_result = runner.invoke(cli.raw, ['--help'])
+    result = runner.invoke(cli.main, ['raw'])
+    help_result = runner.invoke(cli.main, ['raw', '--help'])
 
     # Test exit code
     assert result.exit_code == 0
