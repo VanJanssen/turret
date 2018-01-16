@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-Turret's Scout module for active reconaicance.
+Turret's Scout module for active reconnaissance.
 
 In order to gain insight into its environment and/or its targets, turret can
-perform active reconaicance.
+perform active reconnaissance.
 
 In this case environment includes, but is not limited to:
 - The system Turret is running on (processes, hardware, users, etc.)
@@ -21,7 +21,7 @@ settings might want to reduce detectability to a minimum. Scout has multiple
 preset configurations to deal with all these scenarios.
 
 By itself, Scout will not run as a background process, but will only perform
-the desired reconaicance. As such, Scout can be easility integrated in other
+the desired reconnaissance. As such, Scout can be easility integrated in other
 toolchains, export its data to a variaty of output formats. These include,
 but are not limited to, JSON, XML, SQL databases and Elasticsearch.
 """
