@@ -4,7 +4,6 @@
 
 import click
 
-
 from turret.raw.nmap.cli import nmap
 
 

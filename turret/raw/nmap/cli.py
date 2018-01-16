@@ -6,6 +6,7 @@ import ipaddress
 import sys
 
 import click
+
 import netifaces
 
 
