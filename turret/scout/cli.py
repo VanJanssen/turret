@@ -6,8 +6,13 @@ import click
 
 
 @click.command()
-@click.argument('arguments', nargs=-1, required=True)
-def scout(arguments):
+@click.argument('targets', nargs=-1, required=True)
+@click.option(
+    '--mode',
+    default='intens',
+    type=click.Choice(['intens', 'quick', 'slow', 'stealth']),
+)
+def scout(targets, mode):
     """Perform reconnaissance."""
-    from turret import scout
-    scout.recon(arguments)
+    from turret.scout import recon
+    recon(targets, mode=mode)
