@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""
-Entry point for the command line interface of Turret.
+"""Entry point for the command line interface of Turret.
 
 The command line interface is split across multiple files, to increase
 modulairity and maintainability. Every component of Turret has its own
@@ -20,7 +19,7 @@ from turret.scout.cli import scout
 @click.group()
 @click.version_option(message='Turret %(version)s')
 def main():
-    """Main entry point for the Turret CLI."""
+    """Entry point for the Turret CLI."""
     pass
 
 

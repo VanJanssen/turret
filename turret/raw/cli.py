@@ -9,8 +9,7 @@ from turret.raw.nmap.cli import nmap
 
 @click.group()
 def raw():
-    """
-    Directly call supported tools.
+    """Directly call supported tools.
 
     Invoke supported tools with your specified arguments and options. Turret
     extends the functionality of each supported tool by adding additional

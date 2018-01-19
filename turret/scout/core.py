@@ -4,8 +4,7 @@
 
 
 def recon(targets, mode):
-    """
-    Perform reconnaissance on specified targets.
+    """Perform reconnaissance on specified targets.
 
     High level function that will perform reconnaissance on the targets with
     the specified mode. This mode can be 'quick', 'intens', 'slow' or

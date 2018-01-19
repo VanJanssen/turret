@@ -11,7 +11,8 @@ import netifaces
 
 
 def not_installed_message(applications):
-    """
+    """Return an error message with required applications.
+
     Return a string message saying the applications are not installed. Takes
     a list of strings as input.
     """

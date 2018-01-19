@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""
-Turret's Scout module for active reconnaissance.
+"""Turret's Scout module for active reconnaissance.
 
 In order to gain insight into its environment and/or its targets, turret can
 perform active reconnaissance.

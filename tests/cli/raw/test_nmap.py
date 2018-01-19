@@ -11,8 +11,7 @@ from turret.core import cli
 
 
 def test_nmap_installed():
-    """
-    Test if nmap installation is correctly handled.
+    """Test if nmap installation is correctly handled.
 
     The behaviour of this test is dependent on whether Nmap is installed or
     not. If it is installed, assert that Nmap is executed and the output is

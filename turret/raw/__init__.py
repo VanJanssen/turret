@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""
-Raw components of Turret.
+"""Raw components of Turret.
 
 To perform its tasks, Turret uses various external tools. For example,
 instead of implementing its own network scanner, Turret leverages the power
