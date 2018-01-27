@@ -8,6 +8,7 @@ import sys
 import click
 
 import netifaces
+from turret.raw.nmap.core import Nmap
 
 
 def not_installed_message(applications):
@@ -61,11 +62,11 @@ def nmap(subnet, arguments):
         netmask = bin(int(ipaddress.ip_address(address['netmask']))).count('1')
         network = ipaddress.ip_network('{}/{}'.format(address['addr'], netmask), strict=False)  # noqa: E501
         subnets.add(str(network))
-    from turret.raw.nmap.nmap import scan
     # TODO: Clean way to add multple arguments after they have been validated
     arguments += tuple(subnets)
     try:
-        scan(arguments)
+        nmap = Nmap(arguments=arguments)
+        nmap.run()
     except OSError:
         click.echo(not_installed_message(['nmap']), err=True)
         sys.exit(1)
