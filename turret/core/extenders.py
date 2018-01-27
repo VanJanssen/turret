@@ -52,16 +52,7 @@ class Program():
         self.version_option = version_option
 
     def run(self):
-        # TODO: Instead of returning the error code, return an object similar
-        #       to CompletedProcess like subprocess.run(). Usage should be
-        #       uniform across multiple Python versions and should also
-        #       include additional output information.
-        try:
-            completed_process = subprocess.run(self.command)
-            return completed_process.returncode
-        except AttributeError:
-            returncode = subprocess.call(self.command)
-            return returncode
+        return subprocess.run(self.command)
 
     @property
     def command(self):

@@ -59,8 +59,8 @@ def test_arguments():
 
 def test_run():
     program = Program(test_name)
-    assert program.run() is 0
+    assert program.run().returncode is 0
     program = Program(test_name, show_help=True)
-    assert program.run() is 0
+    assert program.run().returncode is 0
     program = Program(test_name, show_version=True)
-    assert program.run() is 0
+    assert program.run().returncode is 0
