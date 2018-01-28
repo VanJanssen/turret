@@ -2,12 +2,11 @@
 
 """Command line interface for the Raw Nmap command."""
 
-import ipaddress
 import sys
 
 import click
 
-import netifaces
+from turret.core.util import interface_subnet
 from turret.raw.nmap.core import Nmap
 
 
@@ -50,18 +49,13 @@ def nmap(subnet, arguments):
     subnets = set()
     for interface in subnet:
         try:
-            # TODO: deal with multiple addresses
-            # TODO: move this to utilities
-            address = netifaces.ifaddresses(interface)[netifaces.AF_INET][0]
+            subnets.add(str(interface_subnet(interface)))
         except ValueError:
             raise click.BadParameter("'{}' is not a valid interface.".format(
                                      interface))
         except KeyError:
             raise click.BadParameter("'{}' has no IPv4 address.".format(
                                      interface))
-        netmask = bin(int(ipaddress.ip_address(address['netmask']))).count('1')
-        network = ipaddress.ip_network('{}/{}'.format(address['addr'], netmask), strict=False)  # noqa: E501
-        subnets.add(str(network))
     # TODO: Clean way to add multple arguments after they have been validated
     arguments += tuple(subnets)
     try:
