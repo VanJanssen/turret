@@ -4,7 +4,7 @@
 
 import click
 
-from turret.raw.nmap.cli import nmap
+from turret.raw import nmap
 
 
 @click.group()
@@ -19,4 +19,4 @@ def raw():
     pass
 
 
-raw.add_command(nmap)
+raw.add_command(nmap.cli)

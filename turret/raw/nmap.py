@@ -1,13 +1,18 @@
 # -*- coding: utf-8 -*-
 
-"""Command line interface for the Raw Nmap command."""
+"""Raw module for Nmap.
+
+This module provides direct access to Nmap, but also to the wrapper and
+utility functions added by Turret. All functions can be access through the
+API and there is a dedicated nmap CLI subcommand.
+"""
 
 import sys
 
 import click
 
+from turret.core.extenders import Program
 from turret.core.util import interface_subnet
-from turret.raw.nmap.core import Nmap
 
 
 def not_installed_message(applications):
@@ -23,7 +28,16 @@ def not_installed_message(applications):
     return message
 
 
-@click.command(context_settings=dict(
+class Nmap(Program):
+    """Interface for performing Nmap scans."""
+
+    def __init__(self, *,
+                 executable='nmap',
+                 **kwargs):
+        super().__init__(executable, **kwargs)
+
+
+@click.command('nmap', context_settings=dict(
     ignore_unknown_options=True,
 ))
 @click.option(
@@ -44,7 +58,7 @@ def not_installed_message(applications):
          "and netmask '255.255.255.0'. The option '--iface-subnet eth0' will "
          "append the nmap command with the target '192.168.1.0/24'.")
 @click.argument('arguments', nargs=-1, type=click.UNPROCESSED)
-def nmap(subnet, arguments):
+def cli(subnet, arguments):
     """Perform Nmap scans."""
     subnets = set()
     for interface in subnet:
