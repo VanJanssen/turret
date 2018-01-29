@@ -42,19 +42,9 @@ def test_arguments():
     assert program.arguments == ['some', 'arguments']
     assert program.command == [test_name, 'some', 'arguments']
 
-    # Vales that evaulate to False, should reset program.arguments to an
-    # empty list.
-    for value in (list(), dict(), '', None, False):
-        program.arguments = value
-        assert program.arguments == list()
-
-    # Strings are split into a list, but quotes should be respected.
-    program.arguments = 'value \'single quotes\' "double quotes"'
-    assert program.arguments == ['value', 'single quotes', 'double quotes']
-
-    # Tuple becomes list
-    program.arguments = ('some', 'arguments')
-    assert program.arguments == ['some', 'arguments']
+    program.arguments = ['something', 'else']
+    assert program.arguments == ['something', 'else']
+    assert program.command == [test_name, 'something', 'else']
 
 
 def test_run():

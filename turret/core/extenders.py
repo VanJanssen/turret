@@ -2,7 +2,6 @@
 
 """Utilities to extend Turret functionality."""
 
-import shlex
 import subprocess
 
 
@@ -13,7 +12,7 @@ class Program():
     its functionality with additonal options and output formats.
     """
 
-    def __init__(self, executable, arguments=None, *,
+    def __init__(self, executable, arguments=list(), *,
                  show_help=False,
                  help_option='--help',
                  show_version=False,
@@ -67,17 +66,3 @@ class Program():
             _command += [self.version_option]
 
         return _command
-
-    @property
-    def arguments(self):
-        return self._arguments
-
-    @arguments.setter
-    def arguments(self, value):
-        if not value:
-            value = list()
-        elif isinstance(value, str):
-            value = shlex.split(value)
-        else:
-            value = list(value)
-        self._arguments = value

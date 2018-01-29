@@ -73,7 +73,7 @@ def cli(subnet, arguments):
     # TODO: Clean way to add multple arguments after they have been validated
     arguments += tuple(subnets)
     try:
-        nmap = Nmap(arguments=arguments)
+        nmap = Nmap(arguments=list(arguments))
         nmap.run()
     except OSError:
         click.echo(not_installed_message(['nmap']), err=True)
