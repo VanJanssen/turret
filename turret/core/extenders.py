@@ -3,7 +3,36 @@
 """Utilities to extend Turret functionality."""
 
 import subprocess
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
+
+
+class CompletedProgram():
+    """Returnvalue of Program.run, representing a program that has finished.
+
+    This class is a wrapper around CompletedProcess. It keeps the 'args' and
+    'returnvalue' directly accessible, and adds the option for multiple
+    outputs types."""
+
+    def __init__(self,
+                 process: subprocess.CompletedProcess,
+                 output: Optional[Dict[str, str]]=None) -> None:
+        self.process = process
+        self.output = {
+            'stdout': process.stdout,
+            'stderr': process.stderr,
+        }
+        if output:
+            self.output.update(**output)
+
+    @property
+    def args(self) -> Any:
+        """Arguments of the associated CompletedProcess."""
+        return self.process.args
+
+    @property
+    def returncode(self) -> int:
+        """Returncode of the associated CompletedProcess."""
+        return self.process.returncode
 
 
 class Program():
@@ -54,9 +83,9 @@ class Program():
         self.show_version = show_version
         self.version_option = version_option
 
-    def run(self) -> subprocess.CompletedProcess:
+    def run(self) -> CompletedProgram:
         """Run the program with the constructed command."""
-        return subprocess.run(self.command)
+        return CompletedProgram(subprocess.run(self.command))
 
     @property
     def command(self) -> List[str]:
