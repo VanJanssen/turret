@@ -30,14 +30,25 @@ script:
 after_success:
   - codecov
 
-# After you create the Github repo and add it to Travis, run the
-# travis_pypi_setup.py script to finish PyPI deployment setup
+# Deploy to PyPI when a tag is pushed
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
-  user: VanJanssen
+  user: ErwinJanssen
   password:
-    secure: PLEASE_REPLACE_ME
+    secure: !!binary |
+      Y2xVdUFxdHkrbTBNTTJrc0FDT2VWWDF2djUvN3RPYlZxb0hXcUkxU3E3aThwUTR1YXlJUUxQcjc4
+      aWp3cFlkby80eWFycVF4YkQ2aUJBMll0R3FtbC9Ba0JXaXFGQU5NMkVtMU1PR2NuOVNPVGlueXNr
+      Q1pMNUEyR0xVQXJzKzY2U0VWWWJPZm1ISEZ3MWlKdUx1ZFpwaWRFZWdQZHB6UFlTQllNMG5FZDIv
+      WGh2c0FnTC9IVmVPeWdlUVZwV0dXTVI1V3RpZkFoNks1MjJPenM5ZVFrayt0dWFVbEhDdUVqV0Rz
+      WkRaVVlZRkJ5MHJDYUpUS21GUmZPYlNQdnNCNFVqQUh4VXprbzdjZVJkT09YVEtVWE15Zkp1d1BW
+      MEFBdmV3V0t1SkpuNmhZT2JVcHFpZndwQytZSy8yMVhqZXkvODJKZHBncVBEeDB2NTNJSDBvWVdU
+      UXdMSU5hWTFlQndVeW1QV2FDWXErL0pNQm1Nb2h6MFE1VVM3aG9LRkdoS0Y2TkpCTUI4M0Z2WFpR
+      L3dudERNdElYWFU0SDRCUCtwK1dRYlpuaXMxTjdvYkR1MDdQODNPZDNQalpDMFZSeGlqKy96U0k1
+      V3U5eklqZjZHRHgyVDFxbmhvOEhLVjh6bUZ0bTRSVmV1WXZmYVB2TzA1L2l5THlqaGpZUEtDTStp
+      Qm83WlI4bGNPSkloK0hQeFhBc1V4a0cwSXJUQkMzYlluMFN1YzBjdUR4eklBaEpUM1E2OWJnY3Ji
+      SW96VHg2SytDWjFUU2k0aUNZRTk5RlVwdG1EVnlTcmhpL21YbGUxenRQWXV2U1g0WUk4dFZxSnRn
+      b1dWWWJWUCtWTEM4OUJidFgzOXlwV3pnVXRIaElrZ25pYVQvOW5mbUNxS25rN3hBbExUZldRaG89
   on:
     tags: true
     repo: VanJanssen/turret
