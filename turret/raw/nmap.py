@@ -8,14 +8,15 @@ API and there is a dedicated nmap CLI subcommand.
 """
 
 import sys
+from typing import List, Any
 
 import click
 
 from turret.core.extenders import Program
-from turret.core.util import interface_subnet
+from turret.core.util import interface_subnets
 
 
-def not_installed_message(applications):
+def not_installed_message(applications: List[str]) -> str:
     """Return an error message with required applications.
 
     Return a string message saying the applications are not installed. Takes
@@ -32,8 +33,8 @@ class Nmap(Program):
     """Interface for performing Nmap scans."""
 
     def __init__(self, *,
-                 executable='nmap',
-                 **kwargs):
+                 executable: str = 'nmap',
+                 **kwargs) -> None:
         super().__init__(executable, **kwargs)
 
 
@@ -63,7 +64,7 @@ def cli(subnet, arguments):
     subnets = set()
     for interface in subnet:
         try:
-            subnets.add(str(interface_subnet(interface)))
+            subnets = subnets.union(str(s) for s in interface_subnets(interface))
         except ValueError:
             raise click.BadParameter("'{}' is not a valid interface.".format(
                                      interface))

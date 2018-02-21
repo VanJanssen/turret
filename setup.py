@@ -13,7 +13,7 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     'Click>=6.0',
-    'netifaces>=0.10'
+    'psutil>=4.4.0',
 ]
 
 setup_requirements = [
