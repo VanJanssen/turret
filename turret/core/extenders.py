@@ -11,11 +11,23 @@ class CompletedProgram():
 
     This class is a wrapper around CompletedProcess. It keeps the 'args' and
     'returnvalue' directly accessible, and adds the option for multiple
-    outputs types."""
+    outputs types.
+    """
 
     def __init__(self,
                  process: subprocess.CompletedProcess,
                  output: Optional[Dict[str, str]]=None) -> None:
+        """Initialize CompletedProgram.
+
+        Args:
+            process: A CompletedProcess object returned by a call to
+                subprocess.run().
+            output: A dictionary of additional output types and formats
+                associated with this completed program. By default, it will
+                contain the 'stdout' and 'stderr' of the process (these can be
+                overwritten by passing a dictionary conaining 'stdout' or
+                'stderr' as keys).
+        """
         self.process = process
         self.output = {
             'stdout': process.stdout,

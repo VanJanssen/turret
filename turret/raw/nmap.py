@@ -8,7 +8,7 @@ API and there is a dedicated nmap CLI subcommand.
 """
 
 import sys
-from typing import List, Any
+from typing import List
 
 import click
 
@@ -35,6 +35,7 @@ class Nmap(Program):
     def __init__(self, *,
                  executable: str = 'nmap',
                  **kwargs) -> None:
+        """Initialize Nmap scanner object."""
         super().__init__(executable, **kwargs)
 
 
@@ -64,7 +65,7 @@ def cli(subnet, arguments):
     subnets = set()
     for interface in subnet:
         try:
-            subnets = subnets.union(str(s) for s in interface_subnets(interface))
+            subnets = subnets.union(str(s) for s in interface_subnets(interface))  # noqa: 501
         except ValueError:
             raise click.BadParameter("'{}' is not a valid interface.".format(
                                      interface))

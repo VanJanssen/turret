@@ -2,8 +2,8 @@
 
 """Utilities for use in Turret."""
 
-from ipaddress import ip_network, IPv4Network, IPv6Network
 import socket
+from ipaddress import IPv4Network, IPv6Network, ip_network
 from typing import Set, Union
 
 import psutil
