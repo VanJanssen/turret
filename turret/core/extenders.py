@@ -60,6 +60,7 @@ class Program():
                  executable: str,
                  arguments: Optional[List[str]] = None,
                  *,
+                 capture_output: bool = True,
                  show_help: bool = False,
                  help_option: str = '--help',
                  show_version: bool = False,
@@ -77,6 +78,9 @@ class Program():
                 os.PathLike object.
             arguments: List of additonal arguments that will be directly
                 passed to the subprocess call.
+            capture_output (bool): Boolean to indicate if the output of the
+                program should be captured and stored in the CompletedProgram
+                instead of displayed.
             show_help (bool): Boolean to indicate if the program should show
                 its help message. This will append the value of 'help_option'
                 to the command when executing the program.
@@ -90,6 +94,7 @@ class Program():
         """
         self.executable = executable
         self.arguments = arguments if arguments is not None else list()
+        self.capture_output = capture_output
         self.show_help = show_help
         self.help_option = help_option
         self.show_version = show_version
@@ -97,7 +102,14 @@ class Program():
 
     def run(self) -> CompletedProgram:
         """Run the program with the constructed command."""
-        return CompletedProgram(subprocess.run(self.command))
+        if self.capture_output:
+            _process = subprocess.run(self.command,
+                                      stdout=subprocess.PIPE,
+                                      stderr=subprocess.PIPE)
+        else:
+            _process = subprocess.run(self.command)
+
+        return CompletedProgram(_process)
 
     @property
     def command(self) -> List[str]:

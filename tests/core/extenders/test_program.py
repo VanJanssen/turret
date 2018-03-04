@@ -54,3 +54,12 @@ def test_run():
     assert program.run().returncode is 0
     program = Program(test_name, show_version=True)
     assert program.run().returncode is 0
+
+
+def test_completed_program():
+    program = Program(test_name, ['-al'])
+    completed = program.run()
+    assert completed.args == ['ls', '-al']
+    assert completed.returncode == 0
+    assert isinstance(completed.output['stdout'], bytes)
+    assert completed.output['stderr'] == b''
