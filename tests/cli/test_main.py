@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+"""Unit tests for main CLI entry point."""
+
 from click.testing import CliRunner
 
 from turret import __version__

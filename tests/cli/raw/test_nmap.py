@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+"""Unit tests for the `raw nmap` subcommand."""
+
 try:
     from shutil import which
 except ImportError:

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+"""Unit tests for the `interface_subnets` function."""
+
 import socket
 import ipaddress
 from collections import namedtuple
@@ -57,12 +59,14 @@ test_net_if_addrs = {
 
 
 def test_invalid_interface():
+    """An invalid interface should raise a 'ValueError'."""
     psutil.net_if_addrs = MagicMock(return_value=test_net_if_addrs)
     with pytest.raises(ValueError):
         interface_subnets('invalid')
 
 
 def test_valid_interface():
+    """A valid interface should return the subnets of this range."""
     psutil.net_if_addrs = MagicMock(return_value=test_net_if_addrs)
     subnets = interface_subnets('wlp3s0')
     assert subnets == {ipaddress.ip_network('192.168.2.0/24'), }

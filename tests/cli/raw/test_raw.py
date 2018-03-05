@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+"""Unit tests for the `raw` command."""
+
 from click.testing import CliRunner
 
 from turret.core import cli
