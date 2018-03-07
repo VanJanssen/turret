@@ -2,8 +2,8 @@
 
 """Unit tests for the `interface_subnets` function."""
 
-import socket
 import ipaddress
+import socket
 from collections import namedtuple
 from unittest.mock import MagicMock
 
