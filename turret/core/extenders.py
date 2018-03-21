@@ -16,7 +16,7 @@ class CompletedProgram():
 
     def __init__(self,
                  process: subprocess.CompletedProcess,
-                 output: Optional[Dict[str, str]]=None) -> None:
+                 output: Optional[Dict[str, str]] = None) -> None:
         """Initialize CompletedProgram.
 
         Args:

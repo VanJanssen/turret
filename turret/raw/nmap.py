@@ -68,10 +68,10 @@ def cli(subnet, arguments):
             subnets = subnets.union(str(s) for s in interface_subnets(interface))  # noqa: 501
         except ValueError:
             raise click.BadParameter("'{}' is not a valid interface.".format(
-                                     interface))
+                interface))
         except KeyError:
             raise click.BadParameter("'{}' has no IPv4 address.".format(
-                                     interface))
+                interface))
     # TODO: Clean way to add multple arguments after they have been validated
     arguments += tuple(subnets)
     try:
