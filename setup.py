@@ -14,6 +14,7 @@ with open('HISTORY.rst') as history_file:
 requirements = [
     'Click>=6.0',
     'psutil>=4.4.0',
+    'xmltodict',
 ]
 
 setup_requirements = [
