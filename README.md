@@ -6,11 +6,11 @@
 [![Dependencies](https://pyup.io/repos/github/VanJanssen/turret/shield.svg)][pyup]
 [![Test coverage]( https://img.shields.io/codecov/c/github/vanjanssen/turret.svg)][codecov]
 
-pypi: https://pypi.python.org/pypi/turret/
-travis: https://travis-ci.org/VanJanssen/turret/
-documentation: https://turret.readthedocs.io/en/latest/
-pyup: https://pyup.io/repos/github/VanJanssen/turret/
-codecov: https://codecov.io/gh/VanJanssen/turret
+[pypi]: https://pypi.python.org/pypi/turret/
+[travis]: https://travis-ci.org/VanJanssen/turret/
+[documentation]: https://turret.readthedocs.io/en/latest/
+[pyup]: https://pyup.io/repos/github/VanJanssen/turret/
+[codecov]: https://codecov.io/gh/VanJanssen/turret
 
 
 Discover, analyse, manage, attack and defend computer networks.
