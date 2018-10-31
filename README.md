@@ -12,22 +12,25 @@
 [pyup]: https://pyup.io/repos/github/VanJanssen/turret/
 [codecov]: https://codecov.io/gh/VanJanssen/turret
 
+Turret is Python library and application that can help managing and securing
+computer networks. The application provides users with a CLI and web interface
+to discover, visualize and analyze the devices found on the network, and allows
+linking multiple nodes running turret to increase coverage. The library allows
+other developers to use Turret's core functionality in their own applications,
+or provide extensions to Turret's functionality.
 
-Discover, analyse, manage, attack and defend computer networks.
+Turret is still under development, and most features are not yet implemented.
+Planned features include:
 
-
-- Free software: MIT license
-- Documentation: https://turret.readthedocs.io.
-
-
-## Features
-
-* TODO
-
-## Credits
-
-This package was created with [Cookiecutter][cookiecutter] and the
-[`audreyr/cookiecutter-pypackage`][template] project template.
-
-cookiecutter: https://github.com/audreyr/cookiecutter
-template: https://github.com/audreyr/cookiecutter-pypackage
+- Lightweight, able to run smooth on low end hardware such as a Raspberry Pi.
+- Uniform wrappers around common network tools such as Nmap with multiple
+  output conversions and configuration presets.
+- Both a Command Line Interface and a web application. Both should cover all
+  features of Turret.
+- The ability to create a graphical, interactive map of the network layout.
+- Manage nodes known to Turret by specifying their requirements and desired
+  state.
+- Provide defensive capabilities for nodes managed by Turret, both passive
+  (detection) and active (prevention).
+- Provide offensive capabilities to aid penetration testing of the managed
+  infrastructure, but also to deter attackers or reclaim compromised nodes.
